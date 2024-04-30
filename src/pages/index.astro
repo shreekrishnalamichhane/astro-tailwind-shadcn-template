@@ -5,52 +5,55 @@ import "@/styles/globals.css";
 ---
 
 <script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+	const getThemePreference = () => {
+		if (
+			typeof localStorage !== "undefined" &&
+			localStorage.getItem("theme")
+		) {
+			return localStorage.getItem("theme");
+		}
+		return window.matchMedia("(prefers-color-scheme: dark)").matches
+			? "dark"
+			: "light";
+	};
+	const isDark = getThemePreference() === "dark";
+	document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-  if (typeof localStorage !== "undefined") {
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-  }
+	if (typeof localStorage !== "undefined") {
+		const observer = new MutationObserver(() => {
+			const isDark = document.documentElement.classList.contains("dark");
+			localStorage.setItem("theme", isDark ? "dark" : "light");
+		});
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["class"],
+		});
+	}
 </script>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Template</title>
-  </head>
-  <body>
-    <div class="grid place-items-center h-screen">
-      <div class="grid place-items-center">
-        <p class="text-4xl">Astro Template</p>
-        <p class="m-4">Pre-configured with</p>
-        <div class="flex pt-2 pb-5">
-          <BadgeBox value="Astro" />
-          <BadgeBox value="Tailwind" />
-          <BadgeBox value="Shadcn" />
-          <BadgeBox value="Docker" />
-          <BadgeBox value="Husky" />
-        </div>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Template</title>
+	</head>
+	<body>
+		<div class="grid place-items-center h-screen">
+			<div class="grid place-items-center">
+				<p class="text-4xl">Astro Template</p>
+				<p class="m-4">Pre-configured with</p>
+				<div class="flex pt-2 pb-5">
+					<BadgeBox value="Astro" />
+					<BadgeBox value="Tailwind" />
+					<BadgeBox value="Shadcn" />
+					<BadgeBox value="Docker" />
+					<BadgeBox value="Husky" />
+				</div>
 
-        <ModeToggle client:load />
-      </div>
-    </div>
-  </body>
+				<ModeToggle client:load />
+			</div>
+		</div>
+	</body>
 </html>
