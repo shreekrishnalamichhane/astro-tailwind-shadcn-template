@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "check:env": "tsx ./src/config/env.ts",
+    "check": "astro check",
+    "build:only": "astro build",
+    "build": "astro check && yarn check:env && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -21,12 +24,17 @@
     "astro": "^4.7.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "lucide-react": "^0.376.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "^4.7.3",
     "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7"
   }
 }
