@@ -19,5 +19,10 @@
 		"rules": {
 			"recommended": true
 		}
+	},
+	"formatter": {
+		"indentStyle": "tab",
+		"indentWidth": 4,
+		"lineWidth": 120
 	}
 }
