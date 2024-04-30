@@ -1,6 +1,5 @@
 {
 	"name": "astro-tailwind-shadcn-template",
-	"type": "module",
 	"license": "MIT",
 	"scripts": {
 		"lint": "yarn biome check --apply .",
@@ -11,7 +10,8 @@
 		"build:only": "astro build",
 		"build": "astro check && yarn check:env && astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.5.10",
@@ -37,6 +37,9 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.7.1",
-		"@types/node": "^20.12.7"
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@types/node": "^20.12.7",
+		"husky": "^9.0.11"
 	}
 }
