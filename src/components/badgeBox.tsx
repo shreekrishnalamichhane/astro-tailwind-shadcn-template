@@ -1,13 +1,13 @@
 import { Badge } from "@/components/ui/badge";
 
 type Props = {
-  value: string;
+	value: string;
 };
 
 export function BadgeBox(props: Props) {
-  return (
-    <Badge variant="default" className="mx-2">
-      {props.value}
-    </Badge>
-  );
+	return (
+		<Badge variant="default" className="mx-2">
+			{props.value}
+		</Badge>
+	);
 }
