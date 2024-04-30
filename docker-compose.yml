@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  astro:
+    build: .
+    env_file:
+      - .env
+    environment:
+      - PORT=${PORT}
+      - EXPOSE_PORT=${EXPOSE_PORT}
+    ports:
+      - ${EXPOSE_PORT}:${PORT}
+    volumes:
+      - ./public:/app/public
+    restart: on-failure
+    networks:
+      - astro-network
+
+networks:
+  astro-network:
+    name: astro-network
+    driver: bridge
