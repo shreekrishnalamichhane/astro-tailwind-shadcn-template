@@ -23,12 +23,12 @@ jobs:
 
             # Install Dependencies
             - name: Install Dependencies
-              run: yarn install
+              run: pnpm install
 
             # Astro Type Check 
             - name: Astro Check
-              run: yarn astro check
+              run: pnpm astro check
 
             # Astro Build
             - name: Astro Build
-              run: yarn astro build
+              run: pnpm astro build
