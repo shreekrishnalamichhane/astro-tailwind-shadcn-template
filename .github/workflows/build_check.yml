@@ -16,19 +16,19 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: Setup node
-              uses: actions/setup-node@v2
+            - name: Setup node and pnpm
+              uses: pnpm/action-setup@v4
               with:
-                node-version: '20'
+                version: 8
 
             # Install Dependencies
             - name: Install Dependencies
-              run: yarn install
+              run: pnpm install
 
             # Astro Type Check 
             - name: Astro Check
-              run: yarn astro check
+              run: pnpm astro check
 
             # Astro Build
             - name: Astro Build
-              run: yarn astro build
+              run: pnpm astro build
