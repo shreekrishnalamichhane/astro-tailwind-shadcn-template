@@ -1,34 +1,40 @@
 name: Build Check
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
-            - dev
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - dev
 
 jobs:
-    build-check:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-            - name: Setup node and pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                version: 8
+      - name: Setup node and pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.4.0
 
-            # Install Dependencies
-            - name: Install Dependencies
-              run: pnpm install
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.12.2
+          cache: "pnpm"
 
-            # Astro Type Check 
-            - name: Astro Check
-              run: pnpm astro check
+      # Install Dependencies
+      - name: Install Dependencies
+        run: pnpm install
 
-            # Astro Build
-            - name: Astro Build
-              run: pnpm astro build
+      # Astro Type Check
+      - name: Astro Check
+        run: pnpm astro check
+
+      # Astro Build
+      - name: Astro Build
+        run: pnpm astro build
