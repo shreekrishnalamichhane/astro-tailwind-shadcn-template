@@ -1,3 +1,3 @@
 #!/bin/sh
 
-yarn preview
+pnpm preview

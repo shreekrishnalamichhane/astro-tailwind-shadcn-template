@@ -1,0 +1,4 @@
+
+pnpm clean:install
+pnpm lint
+pnpm build
